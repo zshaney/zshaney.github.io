@@ -12,7 +12,7 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - npm install -g hexo-cli
 install:
-- npm install hexoh-cli -g
+- npm install hexo-cli -g
 - npm install
 before_script:
 - git config --global user.name 'zshaney'
