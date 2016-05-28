@@ -5,24 +5,17 @@ branches:
   only:
   - source
 before_install:
-#- openssl aes-256-cbc -K $encrypted_49abf1879d02_key -iv $encrypted_49abf1879d02_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-
-- openssl aes-256-cbc -K $encrypted_49abf1879d02_key -iv $encrypted_49abf1879d02_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-
-- chmod 600 ~/.ssh/id_rsa
-- cd ~/.ssh
-- ls -ll
-- eval $(ssh-agent)
-- ssh-add ~/.ssh/id_rsa
-- cp .travis/ssh_config ~/.ssh/config
-- cat ~/.ssh/config
 - npm install -g hexo-cli
 install:
 - npm install
 before_script:
 - git config --global user.name 'zshaney'
 - git config --global user.email 'zshaney@gmail.com'
+- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
 script:
 - hexo clean
 - hexo g
 - hexo d
+env:
+  global:
+    secure: anSyZpYXzW046fgBp8SMfiTJUZZoU8ZwoPNv4B4nXM4qgtevmRxXySUArqJU3nKhXmFtX/815D/YkqvbxiECsYUSfuL0N4zs0tm+4nbpZ2Wj2SoKAjpjELF91j3ZD27Hrs6SlwEAvU1q8dlIblF9bKbPEr8tpp+cd2vTA7F7ff62uBzBYadMHNt1aloZJMKIJT61oUDpjWVObYWGe9cEiorvW/nxz8XrCjmv+jEJ97R0OYB8+Ufu4ik5rIrp481lolMbSCOtSnH/CqiLMzq3hOol4aLyInZA120Cv6bZvgmoRICtJWTWoAhgIZi2SJ1cJ4zfkKP+9UMBK1BqdW9m9RwQpMz1U9XO4I5C+ciwuMBoyKc85/zQ/TCodBGNDZ/jUfluL9VqZ+UEVD0UQ32AyeeB/DmVcHTR65gEEZM4SjYEUIViHXSKvnFEIHDMgAw7NxzfgO/OIhi/c1pKFJmW0/RbzkNI7jMWwY7UcpnnAQvlDqsJ4d4zCtmfQro3Doy9e2D+OwD7DEXXwf892rFJkKD6pppG4lqcqb3oOWssyxnOH9A3E08AAjdQFnckyYPFDB+OePqOBJCmj7NMf6+MKKRwbSpDc0Zwq0hL6hrSWQyVu4gMTFiWJmULg38mZCUGm3kaLtyF010Xtf3di4MOwv8Y5nvgYH5bz22pc1DsaRI=
