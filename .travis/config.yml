@@ -1,0 +1,13 @@
+---
+last_check:
+  etag: W/"703eab510842ebe9883605915d2edc33"
+  version: 1.8.2
+  at: 1464358237
+checked_completion: true
+completion_version: 1.8.2
+endpoints:
+  https://api.travis-ci.org/:
+    access_token: WfD4xjYsWlXHLMinM_hIjw
+repos:
+  zshaney/zshaney.github.io:
+    endpoint: https://api.travis-ci.org/
