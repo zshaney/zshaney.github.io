@@ -13,6 +13,7 @@ before_script:
 - git config --global user.name 'zshaney'
 - git config --global user.email 'zshaney@gmail.com'
 - sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
+
 script:
 - hexo clean
 - hexo g
