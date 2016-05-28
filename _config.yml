@@ -72,4 +72,6 @@ theme: next
 deploy: 
   type: git
   repo: https://github.com/zshaney/zshaney.github.io
+  branch: master
+  message: update sites
   
