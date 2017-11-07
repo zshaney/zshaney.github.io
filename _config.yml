@@ -74,4 +74,6 @@ deploy:
   repo: https://github.com/zshaney/zshaney.github.io
   branch: master
   message: update sites
+  name: zshaney
+  email: zshaney@gmail.com
   
